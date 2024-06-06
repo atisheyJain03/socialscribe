@@ -1,0 +1,27 @@
+// const openai = new OpenAI();
+
+const OpenAI = require("openai");
+
+const path = require("path");
+
+const fs = require("fs");
+
+const openai = new OpenAI({
+  apiKey: "sk-proj-dzhNEe5wTiLmAgl5fkh7T3BlbkFJMJEdlNnkKqH0l1B4ZmHv",
+});
+
+const temp =
+  "As EV sales are projected to skyrocket in the coming years, the demand for lithium-ion batteries is set to surge. Unlike traditional lead-acid batteries, lithium-ion batteries contain valuable and finite resources such as lithium, cobalt, and nickel. Improper disposal of these batteries poses significant environmental risks, including soil contamination and resource depletion, highlighting the urgent need for effective recycling solutions. Navigating complex recycling challenges Conventional recycling methods for lithium-ion batteries are often inefficient and environmentally harmful. Processes like smelting or shredding fail to effectively extract and purify valuable metals, leading to low recovery rates. Additionally, the complex chemistry of lithium-ion batteries presents challenges in dismantling and processing, underscoring the need for innovative recycling solutions. Pioneering solutions by battery recycling startups Battery recycling startups are at the forefront of innovation, developing advanced techniques to tackle the complexities of lithium-ion battery recycling. They are pioneering methods such as: Hydrometallurgical processes: Techniques like leaching and solvent extraction offer efficient methods for recovering metals from battery materials. Pyrometallurgical methods: High-temperature smelting enables the recovery of valuable metals from battery components. Technological breakthroughs: Advances in chemical engineering and material science drive the development of novel recycling technologies. Innovative separation and sorting techniques, such as froth flotation and magnetic separation, enhance the recovery of valuable metals while minimising waste. Automation and robotics streamline recycling processes, improving efficiency and ensuring worker safety. Economic and environmental advantages Battery recycling startups contribute to a more sustainable EV ecosystem by recovering and repurposing valuable materials from spent batteries. The recycling of lithium-ion batteries reduces the environmental footprint of EVs by conserving natural resources and minimising carbon emissions associated with raw material extraction. Closed-loop recycling systems aim to create a circular economy by reintroducing recovered materials into new battery production, reducing reliance on virgin resources. Navigating regulatory landscapes Governments worldwide are enacting regulations and incentives to promote responsible battery disposal and recycling. Regulatory frameworks encompassing collection, transportation, and processing standards ensure the safe and sustainable management of spent batteries. Incentive programs, tax credits, and subsidies encourage investment in battery recycling infrastructure and research. Addressing scaling challenges and future outlook Despite significant progress, battery recycling startups face scalability challenges, including the need for standardised processes and infrastructure. Continued research and development are essential to optimise recycling technologies, improve efficiency, and reduce costs. Collaboration between industry stakeholders, including automakers, recyclers, and policymakers, is crucial for overcoming barriers and fostering the growth of the battery recycling sector. Case study: Lohum Cleantech One successful company in this space is Lohum Cleantech, an Indian startup specialising in advanced battery recycling and energy storage solutions. Lohum Cleantech has developed innovative technologies to efficiently recycle lithium-ion batteries, extracting valuable materials like lithium, cobalt, nickel, and manganese. These materials are reused in new battery production, reducing dependency on virgin resources and minimising environmental impact. Lohum Cleantech's approach promotes circular economy principles and contributes to the cost-effectiveness and scalability of EV adoption in India and beyond, supporting the growth of the EV market while mitigating the environmental footprint associated with battery production and disposal. Conclusion Battery recycling startups play a pivotal role in shaping the sustainable future of electric vehicles by addressing the challenges associated with lithium-ion battery disposal. Through technological innovation, environmental stewardship, and regulatory compliance, these companies are driving the transition towards a circular economy for EV batteries. As the EV market expands, the importance of battery recycling will only grow, underscoring the need for concerted efforts to optimize recycling processes and infrastructure. The emergence of battery recycling startups represents a beacon of hope in the quest for sustainable transportation solutions. By harnessing innovation, collaboration, and regulatory support, these companies are reshaping the future of EVs and paving the way towards a more sustainable and prosperous world";
+
+const filePath = path.join(__dirname, "../prompts/tweetPrompt.txt");
+async function generateText() {
+  const fileData = await fs.readFileSync(filePath, "utf8");
+
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: "user", content: `${fileData} ${temp}` }],
+    model: "gpt-3.5-turbo",
+  });
+
+  console.log(completion.choices[0].message);
+}
+generateText();
