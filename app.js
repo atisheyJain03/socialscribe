@@ -1,13 +1,15 @@
-import express from "express";
-import userRouter from "./routes/userRouter.js";
-
+const express = require("express");
 const app = express();
 
 // Middleware
 app.use(express.json());
 
 // Routes
-app.use("/api/users", userRouter);
+// app.use("/api/users", userRouter);
+
+app.all("*", (req, res) => {
+  res.send("Hello from the server");
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -19,4 +21,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-export default app;
+module.exports = app;
