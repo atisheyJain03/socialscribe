@@ -1,6 +1,5 @@
-// Import necessary modules
-require("dotenv").config(); // Load environment variables from .env file
-const axios = require("axios"); // HTTP client for making requests
+require("dotenv").config();
+const axios = require("axios");
 
 /**
  * Retrieves details from an article URL using the Diffbot API.
@@ -8,7 +7,6 @@ const axios = require("axios"); // HTTP client for making requests
  * @returns {Promise<void>} - A Promise that resolves once the article details are fetched and logged to the console.
  */
 async function getArticleDetails(articleLink) {
-  // Define HTTP request headers
   const options = {
     headers: {
       accept: "application/json", // Request content type
@@ -19,7 +17,6 @@ async function getArticleDetails(articleLink) {
     // Construct API request URL with provided article link and Diffbot API token
     const link = `https://api.diffbot.com/v3/article?url=${articleLink}&token=${process.env.DIFFBOT_TOKEN}`;
 
-    // Send HTTP GET request to Diffbot API
     const response = await axios.get(link, options);
 
     // Log the extracted article text to the console
@@ -29,6 +26,7 @@ async function getArticleDetails(articleLink) {
   } catch (error) {
     // Log any errors that occur during the request
     console.error(error);
+    throw new Error("Someting wend wrong with diffbot");
   }
 }
 

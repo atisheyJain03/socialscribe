@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
 
+const webhookRouter = require("./routes/webhook");
+
 // Middleware
 app.use(express.json());
 
-// Routes
-// app.use("/api/users", userRouter);
+app.use("/webhook", webhookRouter);
 
 app.all("*", (req, res) => {
   res.send("Hello from the server");

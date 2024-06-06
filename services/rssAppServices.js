@@ -1,15 +1,12 @@
-let Parser = require("rss-parser");
-let parser = new Parser();
+const { default: axios } = require("axios");
 
-(async () => {
-  let feed = await parser.parseURL(
-    "https://www.youtube.com/watch?v=sL6SgDEHH00"
-  );
+const fetchRssData = async (url) => {
+  try {
+    const response = await axios.get(url);
+    console.log("🚀 ~ fetchRssData ~ response:", response?.data?.items);
+  } catch (error) {
+    console.error("Error fetching RSS feed:", error);
+  }
+};
 
-  // let feed = await parser.parseURL("https://www.reddit.com/.rss");
-  console.log(feed);
-
-  //   feed.items.forEach((item) => {
-  //     console.log(item.title + ":" + item.link);
-  //   });
-})();
+fetchRssData("https://rss.app/feeds/v1.1/_pOFO6pApzPEXRwrQ.json");
