@@ -13,15 +13,12 @@ const client = new TwitterApi({
 const twitterRwClient = client.readWrite;
 
 // Post a tweet
-async function postTweet(tweetText) {
-  try {
-    const response = await twitterRwClient.v2.tweet(tweetText);
-    console.log("Tweet posted successfully:", response);
-  } catch (error) {
-    console.error("Error posting tweet:", error);
-  }
+async function postTextTweet(tweetText) {
+  const response = await twitterRwClient.v2.tweet(tweetText);
+
+  return response;
 }
 
 // postTweet();
 
-module.exports = { postTweet };
+module.exports = { postTextTweet };

@@ -1,7 +1,16 @@
 const express = require("express");
 const app = express();
 
+const cron = require("node-cron");
+
 const webhookRouter = require("./routes/webhook");
+const { runFetchedRssData } = require("./services/rssAppServices");
+
+cron.schedule("10 22 * * *", () => {
+  console.log("running daily cron");
+
+  runFetchedRssData();
+});
 
 // Middleware
 app.use(express.json());
