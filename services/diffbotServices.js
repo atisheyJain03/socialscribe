@@ -18,6 +18,7 @@ async function getArticleDetails(articleLink) {
     const link = `https://api.diffbot.com/v3/article?url=${articleLink}&token=${process.env.DIFFBOT_TOKEN}`;
 
     const response = await axios.get(link, options);
+    console.log("🚀 ~ getArticleDetails ~ response:", response);
 
     // Log the extracted article text to the console
     // console.log(response.data?.objects?.[0]?.text);

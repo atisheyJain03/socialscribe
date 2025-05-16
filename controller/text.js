@@ -1,30 +1,7 @@
 const { createCanvas, loadImage } = require("canvas");
 const fs = require("fs");
 const path = require("path");
-
-// Function to draw text with word wrapping
-function drawTextWithWordWrap(ctx, text, x, y, maxWidth, lineHeight) {
-  const words = text.split(" ");
-  let line = "";
-  let testLine;
-  let metrics;
-  let testWidth;
-
-  for (let n = 0; n < words.length; n++) {
-    testLine = line + words[n] + " ";
-    metrics = ctx.measureText(testLine);
-    testWidth = metrics.width;
-
-    if (testWidth > maxWidth && n > 0) {
-      ctx.fillText(line, x, y);
-      line = words[n] + " ";
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
-  }
-  ctx.fillText(line, x, y);
-}
+const { drawTextWithWordWrap } = require("../helper/utils");
 
 const imagePath = path.resolve(__dirname, "../assets/images/profile.png");
 const imagePath2 =

@@ -3,6 +3,7 @@ const { getArticleDetails } = require("../services/diffbotServices");
 const {
   generateArticle,
   generateTweet,
+  generateQuestions,
 } = require("../services/openAIServices.cjs");
 const { trimTextWithHashtags, repairJson } = require("../helper/utils");
 const { postTextTweet } = require("../services/twitterService");
@@ -28,7 +29,14 @@ class StartupNewsWorkflow {
     }
     try {
       const scrappedArticle = await getArticleDetails(this.newsUrl);
+      // const scrappedArticle = await getArticleDetails(
+      //   "https://medium.com/@BharathkumarV/reacts-virtual-dom-17fdcb290a10"
+      // );
       this.#scrappedArticle = scrappedArticle;
+      console.log(
+        "🚀 ~ StartupNewsWorkflow ~ scrapArticle ~ scrappedArticle:",
+        scrappedArticle
+      );
 
       console.log("Article scrapped successfully");
     } catch (error) {
@@ -42,8 +50,12 @@ class StartupNewsWorkflow {
       return this;
     }
     try {
-      const response = await generateArticle(this.#scrappedArticle);
+      const response = await generateQuestions(this.#scrappedArticle);
       this.#generatedArticle = response;
+      console.log(
+        "🚀 ~ StartupNewsWorkflow ~ generateArticle ~ response:",
+        response
+      );
 
       console.log("Article generated successfully ");
     } catch (error) {
@@ -106,9 +118,10 @@ class StartupNewsWorkflow {
 
   async triggerWorkflow() {
     await this.scrapArticle();
-    await Promise.all([this.generateTweet(), this.generateArticle()]);
-    await this.postArticle();
-    await this.postTweet();
+    await this.generateArticle();
+    // await Promise.all([this.generateTweet(), this.generateArticle()]);
+    // await this.postArticle();
+    // await this.postTweet();
 
     console.log({
       //   t: this.#generatedTweet,
@@ -127,15 +140,15 @@ module.exports = { StartupNewsWorkflow };
 // flow.triggerWorkflow();
 
 // IIFE async function for main workflow
-// (async () => {
-//   const workflow = new StartupNewsWorkflow(
-//     "https://yourstory.com/2024/06/capital-is-no-substitute-for-revenue-says-tv-mohandas-pai-byju-edtech"
-//   );
-//   await workflow
-//     .triggerWorkflow()
-//     // .then(() => workflow.rewriteArticle())
-//     // .then(() => workflow.generateTweet())
-//     // .then(() => workflow.postTweet())
-//     // .then(() => workflow.writeToSpreadsheet("output.xlsx"))
-//     .catch((error) => console.error("Workflow failed:", error));
-// })();
+(async () => {
+  const workflow = new StartupNewsWorkflow(
+    "https://medium.com/@BharathkumarV/reacts-virtual-dom-17fdcb290a10"
+  );
+  await workflow
+    .triggerWorkflow()
+    // .then(() => workflow.rewriteArticle())
+    // .then(() => workflow.generateTweet())
+    // .then(() => workflow.postTweet())
+    // .then(() => workflow.writeToSpreadsheet("output.xlsx"))
+    .catch((error) => console.error("Workflow failed:", error));
+})();

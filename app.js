@@ -5,12 +5,15 @@ const cron = require("node-cron");
 
 const webhookRouter = require("./routes/webhook");
 const { runFetchedRssData } = require("./services/rssAppServices");
+const path = require("path");
 
 cron.schedule("10 22 * * *", () => {
   console.log("running daily cron");
-
   runFetchedRssData();
 });
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, "public")));
 
 // Middleware
 app.use(express.json());

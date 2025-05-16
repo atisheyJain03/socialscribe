@@ -1,0 +1,35 @@
+const poetryImages = [
+  "https://atishey.sirv.com/Images/insta_poetry/adrianna-geo-1rBg5YSi00c-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust--IAS_N85adA-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-8wcoY3wcbL0-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-Cv0k6jv3-Vo-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-Dux4iugPayo-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-F8x1FC2pGqU-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-hcXPIKsC2PM-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-HEEvYhNzpEo-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-HslbEeUauYA-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-pWVJHDiAonU-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-Vc8GBqapdfs-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-Vc8GBqapdfs-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-wKlHsooRVbg-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/birmingham-museums-trust-wvD0zZnRbcw-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/british-library-gUDNK8NqYHk-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/brooklyn-MO5qO9xpZhA-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/david-clode-Ysmu6i5bfIc-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/debashis-rc-biswas-AAkNshr7QLw-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-6c43FgRt0Dw-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-Ce99fIKi4bc-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-H-4WME4eoOo-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-r0YH0SqoQ2o-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-r0YH0SqoQ2o-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-TF3g66Jhs50-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/europeana-TjegK_z-0j8-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/tamara-menzi-n-vnWQmmVoY-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/shahzaib-khan-JhhkETs8fjE-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/vera-gorbunova-rFfcNGFoYpA-unsplash.jpg",
+  "https://atishey.sirv.com/Images/insta_poetry/vojtech-bruzek-mCjA1I8SlS8-unsplash.jpg",
+];
+
+const darkBgImagesNature = [];
+
+module.exports = { poetryImages };

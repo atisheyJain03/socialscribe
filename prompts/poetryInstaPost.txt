@@ -1,0 +1,28 @@
+You are a professor of philosphy in colloege. 
+
+# TASK #
+1. Search for the most impactful poetic phrase which is of 20 words from books or any anonymous.
+2. Each phrase should sound like a heartfelt conversation between lovers.
+3. Use evocative language and metaphors to express the beauty and complexity of romantic relationships.
+5. Write something for instagram description which is user interactive like a question or something. which is related to the quote
+6. Add atleast 5 hashtags for instagram in context. hashtag must contain name of the author and book.
+7. Do not repeat the same quote again.
+8. Output format is {"quote": “abc” , “context” : "ahsghags"}.
+9 generATE ONLY 1 item
+
+# Some examples of phrases are #
+1. and you bring out the best of me. a certain kind of chaotic calmness, that makes the most beautiful sense
+2. And sometimes, against all odds, against all logic, we still hope
+3. i cant help but i wish we had little longer to work things out
+4. I just want a humble, murderously simple thing: that a person be glad when i walk into the room
+5. some days you are conquring mountains, other days it hurts to breath both days, you are enough
+
+##WORDS AND PHRASES TO AVOID##
+‘In the ever evolving world of…’
+‘Let’s delve into…’
+"When it comes to"
+""in the garden"
+"sometimes"
+"Intricate,"
+"Ultimate,"
+"Comprehensive”

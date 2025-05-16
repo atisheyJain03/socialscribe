@@ -53,8 +53,43 @@ function repairJson(jsonString) {
 }
 
 // Example usage:
-const brokenJsonString = '{"name": "John", "age": 30]};'; // Missing closing bracket
-const repairedJson = repairJson(brokenJsonString);
-console.log("Repaired JSON:", repairedJson);
+// const brokenJsonString = '{"name": "John", "age": 30]};'; // Missing closing bracket
+// const repairedJson = repairJson(brokenJsonString);
+// console.log("Repaired JSON:", repairedJson);
 
-module.exports = { trimTextWithHashtags, repairJson };
+// Function to draw text with word wrapping
+function drawTextWithWordWrap(ctx, text, x, y, maxWidth, lineHeight) {
+  // .split("").join(String.fromCharCode(8202))
+  const words = text.split(" ");
+  let line = "";
+  let testLine;
+  let metrics;
+  let testWidth;
+
+  for (let n = 0; n < words.length; n++) {
+    testLine = line + words[n] + " ";
+    metrics = ctx.measureText(testLine);
+    testWidth = metrics.width;
+
+    if (testWidth > maxWidth && n > 0) {
+      ctx.fillText(line, x, y);
+      line = words[n] + " ";
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line, x, y);
+}
+
+function getRandomElement(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+module.exports = {
+  trimTextWithHashtags,
+  repairJson,
+  drawTextWithWordWrap,
+  getRandomElement,
+};

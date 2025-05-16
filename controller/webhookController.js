@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { StartupNewsWorkflow } = require("../workflows/startupNewsWorkflow");
 
 async function rssWebhoook(req, res) {
